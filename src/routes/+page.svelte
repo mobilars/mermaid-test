@@ -5,15 +5,11 @@
 
     // The default diagram
     let diagram = `\
-erDiagram
-    CUSTOMER }|..|{ DELIVERY-ADDRESS : has
-    CUSTOMER ||--o{ ORDER : places
-    CUSTOMER ||--o{ INVOICE : "liable for"
-    DELIVERY-ADDRESS ||--o{ ORDER : receives
-    INVOICE ||--|{ ORDER : covers
-    ORDER ||--|{ ORDER-ITEM : includes
-    PRODUCT-CATEGORY ||--|{ PRODUCT : contains
-    PRODUCT ||--o{ ORDER-ITEM : "ordered in"`;
+    flowchart LR
+sensor1 --> Moxa1 --> firewall --> lims
+sensor2 --> Moxa2 --> firewall --> lims
+sensor3 --> Ethernet-adapter --> firewall --> lims
+`;
 
     let container: HTMLSpanElement;
 
@@ -25,7 +21,7 @@ erDiagram
     }
 
     $: diagram && renderDiagram();
-    
+
 </script>
 
 <main>
